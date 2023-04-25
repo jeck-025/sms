@@ -8,7 +8,10 @@ class DB{
             $_count= 0;
     private function __construct() {
         try {
-            $this->_pdo = new PDO('mysql:host='.Conf::get('mysql/host').';dbname='.Conf::get('mysql/db'),Conf::get('mysql/username'),Conf::get('mysql/password'));
+            //local
+            //$this->_pdo = new PDO('mysql:host='.Conf::get('mysql/host').';dbname='.Conf::get('mysql/db'),Conf::get('mysql/username'),Conf::get('mysql/password'));
+            //hostinger
+            $this->_pdo = new PDO('mysql:local='.Conf::get('mysql/host').';dbname='.Conf::get('mysql/db'),Conf::get('mysql/username'),Conf::get('mysql/password'));
         } catch (PDOException $e) {
             die($e->getMessage());
         }
