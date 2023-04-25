@@ -30,7 +30,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/sms/resource/php/class/core/init.php';
 
 
                     <form class="text-center border border-light p-5 shadow puff-in-center" action="" method="post" >
-                    <p class="h4 mb-4">Log in</p>
+                    <p class="h4 mb-4">Sign up</p>
                     <?php logd();?>
                     <input type="text" id="username" class="form-control mb-4" name="username" placeholder="Enter Username" required>
                     <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Enter Password" name ="password" required>
