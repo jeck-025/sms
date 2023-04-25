@@ -1,19 +1,38 @@
-name: SMS Test
+name: 🚀 Publish Website to CPanel
 on:
- push:
-  branches:
-    - main
+  push:
+    branches:
+      - master
 jobs:
   FTP-Deploy-Action:
-    name: FTP-Deploy-Action
-    runs-on: ubuntu-latest
-    steps:
-     - uses: actions/checkout@v2
-       with:
-        fetch-depth:2
-      - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@3.1.1
-        with:
-         ftp-server: ${{ secrets.SFTP_SERVER_SMS }}
-         ftp-username: ${{ secrets.FTP_USERNAME_SMS }}
-         ftp-password: ${{ secrets.FTP_PASSWORD_SMS }}
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚚 Get latest code
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Use Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v2
+        id: cache-node-modules
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+      - name: 🔨 Install Dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: |
+          npm install
+          git reset --hard
+      - name: 📂 Sync folders and files to the server
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.FTP_SERVER_SMS }}
+          username: ${{ secrets.FTP_USERNAME_SMS }}
+          password: ${{ secrets.FTP_PASSWORD_SMS }}
