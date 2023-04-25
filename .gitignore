@@ -1,2 +1,2 @@
-config.php
-DB.php
+resources/php/class/config.php
+resources/php/class/DB.php
