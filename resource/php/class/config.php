@@ -2,14 +2,14 @@
 
 class config{
     //local
-    //private $user = 'root';
-    //private $password = '';
-    //public $pdo = null;
+    private $user = 'root';
+    private $password = '';
+    public $pdo = null;
 
     //hostinger
-    private $user = 'ceumlsre_sms';
-    private $password = 'admin123';
-    public $pdo = null;
+    // private $user = 'ceumlsre_sms';
+    // private $password = 'admin123';
+    // public $pdo = null;
 
     public function con(){
         try {

@@ -3,20 +3,20 @@ date_default_timezone_set('Asia/Manila');
 session_start();
 $GLOBALS['config'] = array(
     //local
-    // 'mysql'=>array(
-    //     'host' => '127.0.0.1:3306',
-    //     'username' =>'root',
-    //     'password' =>'',
-    //     'db'=>'sms'
-    // ),
+    'mysql'=>array(
+        'host' => '127.0.0.1:3306',
+        'username' =>'root',
+        'password' =>'',
+        'db'=>'sms'
+    ),
 
     //hostinger
-    'mysql'=>array(
-        'host' => '109.106.254.186:3306',
-        'username' =>'cemlre_sms',
-        'password' =>'admin123',
-        'db'=>'ceumlsre_sms'
-    ),
+    // 'mysql'=>array(
+    //     'host' => '109.106.254.186:3306',
+    //     'username' =>'cemlre_sms',
+    //     'password' =>'admin123',
+    //     'db'=>'ceumlsre_sms'
+    // ),
 
     'remember'=>array(
         'cookie_name' => 'hash',
