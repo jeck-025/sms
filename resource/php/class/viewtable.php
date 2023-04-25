@@ -7,7 +7,7 @@ class viewtable extends config{
 
 public function viewFirstTable(){
   $con = $this->con();
-  $sql = "SELECT * FROM `tbl_std` WHERE `status`='PENDING'";
+  $sql = "SELECT * FROM `tbl_post` WHERE `status`='PENDING'";
   $data= $con->prepare($sql);
   $data->execute();
   $result = $data->fetchAll(PDO::FETCH_ASSOC);
@@ -42,7 +42,7 @@ public function viewFirstTable(){
 
 public function viewApproveTable(){
   $con = $this->con();
-  $sql = "SELECT * FROM `tbl_std` WHERE `status`='APPROVE'";
+  $sql = "SELECT * FROM `tbl_post`";
   $data= $con->prepare($sql);
   $data->execute();
   $result = $data->fetchAll(PDO::FETCH_ASSOC);
@@ -50,19 +50,19 @@ public function viewApproveTable(){
   echo "<div class='table-responsive'>";
   echo "<table id='scholartable' class='table table-bordered table-sm table-bordered table-hover shadow display' width='100%'>";
   echo "<thead class='thead-dark'>";
-  echo "<th class='d-none d-sm-table-cell'>Student Number</th>";
-  echo "<th>Fullname</th>";
-  echo "<th class='d-none d-sm-table-cell'>Application Type</th>";
-  echo "<th class='d-none d-sm-table-cell'>Email Address</th>";
-  echo "<th class='d-none d-sm-table-cell'>Status</th>";
+  echo "<th class='d-none d-sm-table-cell'>ID</th>";
+  echo "<th>Post</th>";
+  echo "<th class='d-none d-sm-table-cell'>Posted by:</th>";
+  echo "<th class='d-none d-sm-table-cell'>Date Posted</th>";
+
   echo "</thead>";
   foreach ($result as $data) {
   echo "<tr>";
-  echo "<td class='d-none d-sm-table-cell' >$data[stdnumber]</td>";
-  echo "<td style='font-size: 85%;'>$data[fullname]</td>";
-  echo "<td class='d-none d-sm-table-cell' style='font-size: 85%;'>".$data['application_type']."</td>";
-  echo "<td class='d-none d-sm-table-cell'>$data[email]</td>";
-  echo "<td class='d-none d-sm-table-cell'>$data[status]</td>";
+  echo "<td class='d-none d-sm-table-cell' >$data[id]</td>";
+  echo "<td style='font-size: 85%;'>$data[post]</td>";
+  echo "<td class='d-none d-sm-table-cell' style='font-size: 85%;'>".$data['posted_by']."</td>";
+  echo "<td class='d-none d-sm-table-cell'>$data[date_posted]</td>";
+
 
 
   echo "</tr>";
