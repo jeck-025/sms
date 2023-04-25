@@ -19,7 +19,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/sms/resource/php/class/core/init.php';
             <img src="resource/img/header.png" height="70" class="d-inline-block align-top"
               alt="mdb logo"><h3 class="ib">
           </a>
-             <h6 class="text-primary"><b>Connect. Friends. Leisure.</b></h6>
+             <h6 class="text-primary"><b>Connect. Friends. Leisure. Sex</b></h6>
         </nav>
            <div class="container mt-5">
             <div class="row justify-content-center">
