@@ -2,6 +2,8 @@
 require_once $_SERVER['DOCUMENT_ROOT'].'/sms/resource/php/class/core/init.php';
 isLogin();
 $viewtable = new viewtable();
+$user = new user();
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,15 +37,24 @@ $viewtable = new viewtable();
             <img src="resource/img/logo.jpg" height="70" class="d-inline-block align-top"
               alt="mdb logo"><h3 class="ib">
           </a>
+             <a href="logout.php">Logout</a>
              <a href="pending.php"><i class="fas fa-home ceucolor"></i></a>
              <a href="https:/www.facebook.com/theCEUofficial/"><i class="fab fa-facebook-f ceucolor"></i></a>
              <a href="https://www.instagram.com/ceuofficial/"><i class="fab fa-instagram ceucolor"></i></a>
              <a href="https://twitter.com/ceumalolos"><i class="fab fa-twitter ceucolor"></i></a>
         </nav>
 
-        <div class="container mt-4 puff-in-center">
-          <?php $viewtable->viewApproveTable(); ?>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <h6>Hello! , <?php echo $user->data()->name; ?></h6>
+            <?php profilePic() ?>
+          </div>
+          <div class="col-md-4">
+            <?php $viewtable->viewStatus();  ?>
+          </div>
         </div>
+      </div>
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
