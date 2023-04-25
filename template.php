@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/test/resource/php/class/core/init.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/sms/resource/php/class/core/init.php';
 isLogin();
 $viewtable = new viewtable();
  ?>
